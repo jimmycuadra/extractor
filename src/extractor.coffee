@@ -1,4 +1,4 @@
-throw "Extractor has already been loaded." if window.Extractor?
+return if window.Extractor?
 
 modules = {}
 
