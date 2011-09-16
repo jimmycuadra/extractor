@@ -1,7 +1,7 @@
 (function() {
-  var modules;
+  var Extractor, modules;
   modules = {};
-  window.Extractor = {
+  Extractor = {
     register: function(name, mod) {
       if (modules[name]) {
         throw "Module \"" + name + "\" already registered.";
@@ -15,4 +15,6 @@
       return modules[name];
     }
   };
+  Extractor.require = Extractor.extract;
+  window.Extractor = Extractor;
 }).call(this);
