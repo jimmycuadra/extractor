@@ -15,7 +15,7 @@ For library authors:
   };
 
   Extractor.register("MyLibrary", MyLibrary);
-});
+})();
 ```
 
 For developers:
@@ -24,13 +24,15 @@ For developers:
 
 ```javascript
 var FooBar = Extractor.extract("MyLibrary");
+```
 
-// or, alternatively:
+Or, alternatively:
 
+```javascript
 var FooBar = Extractor.require("MyLibrary");
 ```
 
-### Extracting a single property/function
+### Extracting a single property/function from a library
 
 ```javascript
 var barify = Extractor.extract("MyLibrary").fooify;
