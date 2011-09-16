@@ -1,6 +1,6 @@
 # Extractor.js
 
-**Extractor** is a tiny JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with a syntax more akin to Node's `require`. In fact, Extractor's `extract` method is aliased to `require` for convenience.
+**Extractor** is a tiny (&cong;300 bytes minified) JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with a syntax more akin to Node's `require`. In fact, Extractor's `extract` method is aliased to `require` for convenience.
 
 ## Usage
 
