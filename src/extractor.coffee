@@ -1,3 +1,5 @@
+throw "Extractor has already been loaded." if window.Extractor?
+
 modules = {}
 
 Extractor =

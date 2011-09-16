@@ -1,5 +1,8 @@
 (function() {
   var Extractor, modules;
+  if (window.Extractor != null) {
+    throw "Extractor has already been loaded.";
+  }
   modules = {};
   Extractor = {
     register: function(name, mod) {
