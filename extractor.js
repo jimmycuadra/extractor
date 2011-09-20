@@ -16,6 +16,10 @@
         throw "Module \"" + name + "\" not registered.";
       }
       return modules[name];
+    },
+    reset: function() {
+      modules = {};
+      return this;
     }
   };
   Extractor.require = Extractor.extract;

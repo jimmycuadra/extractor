@@ -40,6 +40,8 @@ var barify = Extractor.extract("MyLibrary").fooify;
 
 This allows developers to extract any module (or any property of a module) into a variable with a name of their choosing.
 
+If, for some reason, you need to programmatically reset Extractor's registry, use `Extract.reset()`.
+
 ## Tests
 
 Extractor includes Jasmine specs. Simply open `spec-runner.html` in a browser to run them.

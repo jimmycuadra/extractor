@@ -1,39 +1,44 @@
 (function() {
   describe("Extractor", function() {
-    it("attaches to the global object", function() {
-      return expect(typeof Extractor).toEqual("object");
+    beforeEach(function() {
+      return Extractor.reset();
     });
     describe(".register", function() {
       var registerTest;
       registerTest = function() {};
       it("registers modules under the provided name", function() {
-        var fn;
-        fn = function() {
+        return expect(function() {
           return Extractor.register("registerTest", registerTest);
-        };
-        return expect(fn).not.toThrow();
+        }).not.toThrow();
       });
       return it("throws if the module has already been registered", function() {
         var fn;
         fn = function() {
           return Extractor.register("registerTest", registerTest);
         };
+        fn();
         return expect(fn).toThrow();
       });
     });
-    return describe(".extract", function() {
+    describe(".extract", function() {
       var extractTest;
       extractTest = function() {};
       it("throws if the module with the provided name is not registered", function() {
-        var result;
-        result = function() {
+        return expect(function() {
           return Extractor.extract("extractTest");
-        };
-        return expect(result).toThrow();
+        }).toThrow();
       });
       return it("returns the module with the provided name", function() {
         Extractor.register("extractTest", extractTest);
         return expect(Extractor.extract("extractTest")).toBe(extractTest);
+      });
+    });
+    return describe(".reset", function() {
+      return it("removes all registered modules", function() {
+        Extractor.register("fn", function() {});
+        return expect(function() {
+          return Extractor.reset().extract("fn");
+        }).toThrow();
       });
     });
   });

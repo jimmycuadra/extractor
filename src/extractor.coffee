@@ -11,6 +11,10 @@ Extractor =
     throw "Module \"#{name}\" not registered." unless modules[name]
     modules[name]
 
+  reset: ->
+    modules = {}
+    this
+
 Extractor.require = Extractor.extract
 
 window.Extractor = Extractor
