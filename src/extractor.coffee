@@ -1,4 +1,4 @@
-return if window? && "Extractor" of window
+return if "Extractor" of this
 
 mods = {}
 
@@ -17,5 +17,4 @@ Extractor =
 
 Extractor.require = Extractor.extract
 
-window.Extractor = Extractor if window?
-module.exports = Extractor if module?
+if module then module.exports = Extractor else @Extractor = Extractor
