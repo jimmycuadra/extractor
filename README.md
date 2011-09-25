@@ -1,6 +1,6 @@
 # Extractor.js
 
-**Extractor** is a tiny (&cong;300 bytes minified) JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with a syntax more akin to Node's `require`. In fact, Extractor's `extract` method is aliased to `require` for convenience.
+**Extractor** is a tiny JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with a syntax more akin to Node's `require`. In fact, Extractor's `extract` method is aliased to `require` for convenience.
 
 ## Usage
 
@@ -44,7 +44,7 @@ If, for some reason, you need to programmatically reset Extractor's registry, us
 
 ## Tests
 
-Extractor includes Jasmine specs. Simply open `spec-runner.html` in a browser to run them.
+Extractor includes Jasmine specs. Simply run `cake test` to run them (requires Node.js and CoffeeScript).
 
 ## License
 
