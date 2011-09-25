@@ -1,3 +1,5 @@
+Extractor = require "extractor"
+
 describe "Extractor", ->
   beforeEach ->
     Extractor.reset()

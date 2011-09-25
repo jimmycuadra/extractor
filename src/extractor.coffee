@@ -1,20 +1,21 @@
-return if window.Extractor?
+return if window? && "Extractor" of window
 
-modules = {}
+mods = {}
 
 Extractor =
   register: (name, mod) ->
-    throw "Module \"#{name}\" already registered." if modules[name]
-    modules[name] = mod
+    throw "Module \"#{name}\" already registered." if mods[name]
+    mods[name] = mod
 
   extract: (name) ->
-    throw "Module \"#{name}\" not registered." unless modules[name]
-    modules[name]
+    throw "Module \"#{name}\" not registered." unless mods[name]
+    mods[name]
 
   reset: ->
-    modules = {}
+    mods = {}
     this
 
 Extractor.require = Extractor.extract
 
-window.Extractor = Extractor
+window.Extractor = Extractor if window?
+module.exports = Extractor if module?
