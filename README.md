@@ -42,9 +42,13 @@ This allows developers to extract any module (or any property of a module) into 
 
 If, for some reason, you need to programmatically reset Extractor's registry, use `Extract.reset()`.
 
-## Tests
+## Download
 
-Extractor includes Jasmine specs. Simply run `cake test` to run them (requires Node.js and CoffeeScript).
+To download Extractor, use the Downloads button near the top of the page.
+
+## Development
+
+To work on Extractor or to run the included Jasmine specs, you must have Node and NPM installed. Clone the repository and run `npm install` inside the directory to install the Node dependencies. You should also install CoffeeScript globally with `npm install coffee-script -g` to get command line access to the Cake tasks. Run `cake` for a list of available tasks.
 
 ## License
 
