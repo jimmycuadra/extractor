@@ -1,0 +1,23 @@
+{
+  "author": "Jimmy Cuadra <jimmy@jimmycuadra.com> (http://jimmycuadra.com/)",
+  "name": "extractor",
+  "description": "A JavaScript library for managing the global namespace.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jimmycuadra/extractor",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jimmycuadra/extractor.git"
+  },
+  "scripts": {
+    "test": "cake test"
+  },
+  "engines": {
+    "node": "~v0.4.12"
+  },
+  "dependencies": {},
+  "devDependencies": [
+    "jasmine-node",
+    "nodewatch",
+    "uglify-js"
+  ]
+}
