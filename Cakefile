@@ -17,14 +17,14 @@ task "test:watch", "Watches source files and runs the test suite any time they c
     invoke "test"
 
 task "build", "Builds the minified JavaScript file.", ->
-  [oldname, newname] = ["extractor.min.js", "extractor.min.new.js"]
-  exec "coffee -p -c src/extractor.coffee | uglifyjs", (error, stdout, stderr) ->
-    throw error if error?
-    fs.writeFileSync newname, stdout + "\n"
-    oldsize = fs.statSync(oldname).size
-    newsize = fs.statSync(newname).size
-    change = newsize - oldsize
-    exec "mv #{newname} #{oldname}", (error, stdout, stderr) ->
-      throw error if error?
-      plural = if change is 1 or change is -1 then "" else "s"
-      console.log "Built minified JavaScript file.", "Change in size since last version: #{change} byte#{plural}."
+  fs.rmdir "build", (error) ->
+    fs.mkdir "build", "755", (error) ->
+      exec "coffee -c -o build src", (error, stdout, stderr) ->
+        if error?
+          console.error "Coffee failed."
+          throw error
+        exec "uglifyjs build/extractor.js | awk 1 - > build/extractor.min.js", (error, stdout, stderr) ->
+          if error?
+            console.error "Uglify failed."
+            throw error
+          console.log "Built project to ./build."
