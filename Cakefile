@@ -16,15 +16,15 @@ task "test:watch", "Watches source files and runs the test suite any time they c
     console.log divider, new Date, divider
     invoke "test"
 
-task "build", "Builds the minified JavaScript file.", ->
+task "build", "Compiles src to lib and builds the minified JavaScript file.", ->
   fs.rmdir "build", (error) ->
     fs.mkdir "build", "755", (error) ->
-      exec "coffee -c -o build src", (error, stdout, stderr) ->
+      exec "coffee -c -o lib src", (error, stdout, stderr) ->
         if error?
           console.error "Coffee failed."
           throw error
-        exec "uglifyjs build/extractor.js | awk 1 - > build/extractor.min.js", (error, stdout, stderr) ->
+        exec "uglifyjs lib/extractor.js | awk 1 - > extractor.min.js", (error, stdout, stderr) ->
           if error?
             console.error "Uglify failed."
             throw error
-          console.log "Built project to ./build."
+          console.log "Built project."

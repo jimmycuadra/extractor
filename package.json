@@ -1,13 +1,15 @@
 {
-  "author": "Jimmy Cuadra <jimmy@jimmycuadra.com> (http://jimmycuadra.com/)",
   "name": "extractor",
+  "version": "0.1.0",
   "description": "A JavaScript library for managing the global namespace.",
-  "version": "0.0.1",
+  "keywords": ["require", "exports", "module"],
+  "author": "Jimmy Cuadra <jimmy@jimmycuadra.com> (http://jimmycuadra.com/)",
   "homepage": "https://github.com/jimmycuadra/extractor",
   "repository": {
     "type": "git",
     "url": "git://github.com/jimmycuadra/extractor.git"
   },
+  "main": "./lib/extractor.js",
   "scripts": {
     "test": "cake test"
   },

@@ -4,37 +4,37 @@ describe "Extractor", ->
   beforeEach ->
     Extractor.reset()
 
-  describe ".register", ->
-    registerTest = ->
+  describe ".exports", ->
+    exportsTest = ->
 
     it "registers modules under the provided name", ->
       expect ->
-        Extractor.register "registerTest", registerTest
+        Extractor.exports "exportsTest", exportsTest
       .not.toThrow()
 
     it "throws if the module has already been registered", ->
       fn = ->
-        Extractor.register "registerTest", registerTest
+        Extractor.exports "exportsTest", exportsTest
 
-      fn();
+      fn()
       expect(fn).toThrow()
 
-  describe ".extract", ->
-    extractTest = ->
+  describe ".require", ->
+    requireTest = ->
 
     it "throws if the module with the provided name is not registered", ->
       expect ->
-        Extractor.extract "extractTest"
+        Extractor.require "requireTest"
       .toThrow()
 
     it "returns the module with the provided name", ->
-      Extractor.register "extractTest", extractTest
+      Extractor.exports "requireTest", requireTest
 
-      expect(Extractor.extract "extractTest").toBe extractTest
+      expect(Extractor.require "requireTest").toBe requireTest
 
   describe ".reset", ->
     it "removes all registered modules", ->
-      Extractor.register "fn", ->
+      Extractor.exports "fn", ->
       expect ->
-        Extractor.reset().extract "fn"
+        Extractor.reset().require "fn"
       .toThrow()
