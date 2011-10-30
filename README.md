@@ -1,6 +1,6 @@
 # Extractor.js
 
-**Extractor** is a tiny JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with a syntax more akin to Node's `require`. In fact, Extractor's `extract` method is aliased to `require` for convenience.
+**Extractor** is a tiny JavaScript library for managing variables in the global namespace. Instead of attaching themselves to the global object, libraries may register with Extractor. Developers can then retrieve registered libraries from Extractor and assign them to a variable of their choice. It achieves an effect similar to jQuery's `noConflict` function with CommonJS terminology.
 
 ## Usage
 
@@ -14,19 +14,13 @@ For library authors:
     foo: "bar"
   };
 
-  Extractor.register("MyLibrary", MyLibrary);
+  Extractor.exports("MyLibrary", MyLibrary);
 })();
 ```
 
 For developers:
 
 ### Extracting a library
-
-```javascript
-var FooBar = Extractor.extract("MyLibrary");
-```
-
-Or, alternatively:
 
 ```javascript
 var FooBar = Extractor.require("MyLibrary");
@@ -41,10 +35,6 @@ var barify = Extractor.extract("MyLibrary").fooify;
 This allows developers to extract any module (or any property of a module) into a variable with a name of their choosing.
 
 If, for some reason, you need to programmatically reset Extractor's registry, use `Extract.reset()`.
-
-## Download
-
-To download Extractor, use the Downloads button near the top of the page.
 
 ## Development
 
