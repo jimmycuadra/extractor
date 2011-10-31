@@ -34,7 +34,13 @@ var barify = Extractor.extract("MyLibrary").fooify;
 
 This allows developers to extract any module (or any property of a module) into a variable with a name of their choosing.
 
-If, for some reason, you need to programmatically reset Extractor's registry, use `Extract.reset()`.
+### Listing registered modules
+
+To get an alphabetical list of the names of all modules registered with Extractor, call `Extractor.listModules()`.
+
+### Resetting Extractor's registry
+
+If, for some reason, you need to programmatically reset Extractor's registry, call `Extractor.reset()` to clear all registered modules.
 
 ## Development
 

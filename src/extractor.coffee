@@ -15,4 +15,7 @@ Extractor =
     mods = {}
     this
 
+  listModules: ->
+    (name for name of mods).sort()
+
 if module? then module.exports = Extractor else @Extractor = Extractor

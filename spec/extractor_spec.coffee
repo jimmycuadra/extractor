@@ -38,3 +38,9 @@ describe "Extractor", ->
       expect ->
         Extractor.reset().require "fn"
       .toThrow()
+
+  describe ".listModules", ->
+    it "lists all registered modules in alphabetical order", ->
+      modules = ["foo", "bar", "baz"]
+      Extractor.exports module for module in modules
+      expect(Extractor.listModules()).toEqual ["bar", "baz", "foo"]
