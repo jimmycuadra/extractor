@@ -1,4 +1,4 @@
-return if "Extractor" of this
+return if @Extractor?
 
 mods = {}
 
@@ -15,4 +15,4 @@ Extractor =
     mods = {}
     this
 
-if module then module.exports = Extractor else @Extractor = Extractor
+if module? then module.exports = Extractor else @Extractor = Extractor
